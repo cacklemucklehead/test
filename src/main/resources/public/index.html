@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poster Application</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="./js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+</head>
+    <body ng-app="Shout" ng-controller="SignInController">
+        <div id="header">
+            <img id="header-image" src="../images/shout-pic.PNG">
+        </div>
+
+        <div id="main-action">
+            <button id="sign-in" ng-model="existingUser" class="main-buttons" onclick="signIn();">Sign in</button>
+            <button id="sign-up" ng-model="newUser" class="main-buttons" onclick="signUp();">Sign up</button>
+        </div>
+
+
+        <footer>
+            <p id="owner-tag">By Anthony Martin</p>
+        </footer>
+    </body>
+</html>
