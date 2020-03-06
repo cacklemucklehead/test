@@ -9,12 +9,28 @@
     <body ng-app="Shout" ng-controller="SignInController">
         <div id="header">
             <img id="header-image" src="../images/shout-pic.PNG">
-            <button id="signInButton" ng-click="signIn()">Sign In</button>
-            <button id="signUpButton" ng-click="signUp();">Sign Up</button>
-
+            <button id="signInButton" ng-if="signInSelection" ng-click="signIn()">Sign In</button>
+            <button id="signUpButton" ng-if="signInSelection" ng-click="signUp()">Sign Up</button>
+            <button id="home" ng-if="homeActive" ng-click="home()">Home</button>
         </div>
 
+        <form id="signInForm" ng-model="signInForm" ng-show="signInForm">
+            <label class="label" for="userNameSi" ng-show="signInForm">User Name:</label>
+            <input id="userNameSi" class="signInBox" type="text" name="userName" ng-show="signInForm">
+            <label class="label" for="userPasswordSi" ng-show="signInForm">Password:</label>
+            <input id="userPasswordSi" class="signInBox" type="password" name="password" ng-show="signInForm">
+        </form>
 
+        <form id="signUpForm" ng-model="signUpForm" ng-show="signUpForm">
+            <label class="label" for="userEmail" ng-show="signUpForm">Email:</label>
+            <input id="userEmail" class="signUpInputBox" type="email" name="userEmail" ng-show="signUpForm">
+            <label class="label" for="userNameSu" ng-show="signUpForm">User Name:</label>
+            <input id="userNameSu" class="signUpInputBox" type="text" name="userName" ng-show="signUpForm">
+            <label class="label" for="userAge" ng-show="signUpForm">Age:</label>
+            <input id="userAge" class="signUpInputBox" type="number" name="age" min="0" ng-show="signUpForm">
+            <label class="label" for="userPasswordSu" ng-show="signUpForm">Password:</label>
+            <input id="userPasswordSu" class="signUpInputBox" type="password" name="password" ng-show="signUpForm">
+        </form>
 
         <footer>
             <p id="owner-tag">By Anthony Martin</p>
