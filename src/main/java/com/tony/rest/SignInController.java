@@ -4,6 +4,7 @@ import com.tony.dto.UserDto;
 import com.tony.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,5 +22,12 @@ public class SignInController {
     public UserDto getExistingUserProfile(@RequestParam(name = "userName")String userName, @RequestParam(name = "password")String password){
 
         return userService.getUserByUserNameAndPassword(userName, password);
+    }
+
+    @RequestMapping(value = "create/new/profile", produces = "application/json", method = RequestMethod.POST)
+    @ResponseBody
+    public UserDto createNewUser(@RequestBody UserDto newUser){
+        System.out.println(newUser);
+        return null;
     }
 }

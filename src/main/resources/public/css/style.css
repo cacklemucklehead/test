@@ -90,6 +90,7 @@ body footer{
     left: 50%;
     margin: -100px 0 0 -150px;
     background: darkgrey;
+
 }
 #userNameSi{
     display: block;
@@ -100,6 +101,12 @@ body footer{
 .label{
     display: block;
     margin-top: 10px;
+}
+.signInBox{
+    cursor: pointer;
+}
+.signUpBox{
+    cursor: pointer;
 }
 
 

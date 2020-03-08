@@ -1,27 +1,24 @@
 package com.tony.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.tony.model.User;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto {
 
     private int id;
-    private String fName;
-    private String lName;
+    private int age;
     private String email;
     private String userName;
-
-
-    public UserDto(User user) {
-        this.id = user.getUserId();
-        this.fName = user.getfName();
-        this.lName = user.getlName();
-        this.email = user.getEmail();
-        this.userName = user.getUserName();
-    }
+    private String password;
 
     public UserDto() {
+    }
+
+    public UserDto(int id, int age, String email, String userName) {
+        this.id = id;
+        this.age = age;
+        this.email = email;
+        this.userName = userName;
     }
 
     public int getId() {
@@ -32,20 +29,12 @@ public class UserDto {
         this.id = id;
     }
 
-    public String getfName() {
-        return fName;
+    public int getAge() {
+        return age;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
-    }
-
-    public String getlName() {
-        return lName;
-    }
-
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getEmail() {
@@ -62,5 +51,13 @@ public class UserDto {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

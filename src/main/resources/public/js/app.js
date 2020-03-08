@@ -37,12 +37,21 @@ app.controller("SignInController", ['$scope', '$http',function ($scope, $http) {
        };
         $http(getUser)
             .then(function(response) {
-                console.log("request went out")
+                console.log("signing in")
             });
     }
 
     $scope.createUserProfile = function () {
-
+        var userDto = {
+            age: $scope.newUserAge,
+            email: $scope.newUserEmail,
+            userName: $scope.newUserName,
+            password: $scope.newUserPassword
+        };
+        $http.post("userProfile/create/new/profile", userDto)
+            .then(function(response) {
+                console.log("creating new user")
+            });
     }
 
 }])
