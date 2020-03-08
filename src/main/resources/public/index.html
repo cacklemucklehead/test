@@ -14,15 +14,15 @@
             <button id="home" ng-if="homeActive" ng-click="home()">Home</button>
         </div>
 
-        <div ng-model="signInDiv" id="signInDiv" ng-show="signInForm">
+        <div ng-model="signInDiv" class="signInAndSignUpDiv" ng-show="signInForm">
             <label class="label" for="userNameSi">User Name:</label>
             <input id="userNameSi" class="signInBox" type="text" name="userName" ng-model="usersName">
             <label class="label" for="userPasswordSi">Password:</label>
-            <input id="userPasswordSi" class="signInBox" type="password" ng-model="usersPassword" name="password">
+            <input id="userPasswordSi" class="password" type="password" ng-model="usersPassword" name="password">
             <input type="submit" id="submitSignInButton" value="Log In:" class="submitBox" ng-click="getUserProfile()">
         </div>
 
-        <div ng-model="signUpDiv" id="signUpDiv" ng-show="signUpForm">
+        <div ng-model="signUpDiv" class="signInAndSignUpDiv" ng-show="signUpForm">
             <label class="label" for="userEmail">Email:</label>
             <input id="userEmail" class="signUpInputBox" type="email" name="userEmail">
             <label class="label" for="userNameSu">User Name:</label>
@@ -30,7 +30,7 @@
             <label class="label" for="userAge">Age:</label>
             <input id="userAge" class="signUpInputBox" type="number" name="age" min="0">
             <label class="label" for="userPasswordSu">Password:</label>
-            <input id="userPasswordSu" class="signUpInputBox" type="password" name="password">
+            <input id="userPasswordSu" class="password" type="password" name="password">
             <input type="submit" id="submitSignUpButton" value="Log In:" class="submitBox" ng-click="createUserProfile()">
         </div>
 

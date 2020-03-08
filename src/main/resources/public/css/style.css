@@ -79,17 +79,9 @@ body footer{
 }
 /*keep all of the above*/
 
-#signInDiv {
-    position: absolute;
-    width: 350px;
-    height: 120px;
-    z-index: 15;
-    top: 50%;
-    left: 50%;
-    margin: -100px 0 0 -150px;
-    background: darkgrey;
-}
-#signUpDiv{
+/*user sign in/up styling*/
+
+.signInAndSignUpDiv{
     position: absolute;
     width: 350px;
     height: 120px;
@@ -102,14 +94,8 @@ body footer{
 #userNameSi{
     display: block;
 }
-#userPasswordSi{
-    display: inline-block;
-}
 #userNameSu{
     display: block;
-}
-#userPasswordSu{
-    display: inline-block;
 }
 .label{
     display: block;
