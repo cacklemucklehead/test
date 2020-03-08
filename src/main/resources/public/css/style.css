@@ -77,31 +77,44 @@ body footer{
     float:  right;
     margin-right: 20px;
 }
+/*keep all of the above*/
 
-#signUpForm{
-    margin-top: 5%;
+#signInDiv {
+    position: absolute;
+    width: 350px;
+    height: 120px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    background: darkgrey;
 }
-
-#signInForm{
-    margin-top: 10%;
+#signUpDiv{
+    position: absolute;
+    width: 350px;
+    height: 120px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    background: darkgrey;
 }
-
-#signUpForm input, label{
+#userNameSi{
     display: block;
-    margin-left: 45%;
-    margin-top: 3px;
-    cursor: pointer;
-    padding: 6px;
 }
-
-#signInForm input, label{
+#userPasswordSi{
+    display: inline-block;
+}
+#userNameSu{
     display: block;
-    margin-left: 45%;
-    margin-top: 3px;
-    cursor: pointer;
-    padding: 6px;
 }
-
+#userPasswordSu{
+    display: inline-block;
+}
+.label{
+    display: block;
+    margin-top: 10px;
+}
 
 
 

@@ -1,6 +1,6 @@
 
 var app = angular.module("Shout", []);
-app.controller("SignInController", ['$scope',function ($scope) {
+app.controller("SignInController", ['$scope', '$http',function ($scope, $http) {
 
     $scope.signInSelection = true;
     $scope.signInForm = false;
@@ -27,6 +27,22 @@ app.controller("SignInController", ['$scope',function ($scope) {
         $scope.signUpForm = false;
         $scope.homeActive = false;
         console.log("back up!");
+    }
+
+    $scope.getUserProfile = function () {
+       var getUser = {
+           method : "GET",
+           url: 'userProfile/get/user/profile',
+           params: {userName:$scope.usersName, password:$scope.usersPassword}
+       };
+        $http(getUser)
+            .then(function(response) {
+                console.log("request went out")
+            });
+    }
+
+    $scope.createUserProfile = function () {
+
     }
 
 }])

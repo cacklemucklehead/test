@@ -16,7 +16,7 @@ public class SignInController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "{userName}/{password}", produces = "application/json", method = RequestMethod.GET)
+    @RequestMapping(value = "get/user/profile", produces = "application/json", method = RequestMethod.GET)
     @ResponseBody
     public UserDto getExistingUserProfile(@RequestParam(name = "userName")String userName, @RequestParam(name = "password")String password){
 
