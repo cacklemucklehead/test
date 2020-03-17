@@ -2,50 +2,30 @@ package com.tony.model;
 
 public class User {
 
-    private int userId;
-    private String fName;
-    private String lName;
+    private int id;
     private String userName;
     private String password;
     private String email;
+    private int age;
 
-    public User(int userId, String fName, String lName,
-                String userName, String password,
-                String email) {
-        this.userId = userId;
-        this.fName = fName;
-        this.lName = lName;
+    public User(int id, String userName, String password,
+                String email, int age) {
+        this.id = id;
         this.userName = userName;
         this.password = password;
         this.email = email;
+        this.age = age;
     }
 
     public User() {
     }
 
-
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getfName() {
-        return fName;
-    }
-
-    public void setfName(String fName) {
-        this.fName = fName;
-    }
-
-    public String getlName() {
-        return lName;
-    }
-
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -70,5 +50,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

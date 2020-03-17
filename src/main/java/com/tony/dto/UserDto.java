@@ -1,6 +1,7 @@
 package com.tony.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.tony.model.User;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto {
@@ -20,6 +21,15 @@ public class UserDto {
         this.email = email;
         this.userName = userName;
     }
+
+    public UserDto(User u) {
+        this.id = u.getId();
+        this.age = u.getAge();
+        this.email = u.getEmail();
+        this.userName = u.getUserName();
+    }
+
+
 
     public int getId() {
         return id;

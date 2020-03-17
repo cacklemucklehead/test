@@ -13,6 +13,6 @@ public class UserService {
 
     public UserDto getUserByUserNameAndPassword(String userName, String password){
 
-        return null;
+        return new UserDto(userRepository.getUserByUserNameAndPassword(userName, password));
     }
 }

@@ -7,6 +7,9 @@ app.controller("SignInController", ['$scope', '$http',function ($scope, $http) {
     $scope.signUpForm = false;
     $scope.homeActive = false;
 
+    $scope.user;
+
+
    $scope.signIn = function signIn() {
        $scope.signInSelection = false;
        $scope.signInForm = true;
@@ -37,7 +40,13 @@ app.controller("SignInController", ['$scope', '$http',function ($scope, $http) {
        };
         $http(getUser)
             .then(function(response) {
-                console.log("signing in")
+                console.log("signing in");
+                $scope.user = response.data;
+                window.location.href = "http://www.w3schools.com";
+                // console.log('id :' + $scope.user.id);
+                // console.log('age :' + $scope.user.age);
+                // console.log('user name :' + $scope.user.userName);
+                // console.log('email :' + $scope.user.email);
             });
     }
 

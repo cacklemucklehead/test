@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "userProfile/")
@@ -21,7 +22,10 @@ public class SignInController {
     @ResponseBody
     public UserDto getExistingUserProfile(@RequestParam(name = "userName")String userName, @RequestParam(name = "password")String password){
 
-        return userService.getUserByUserNameAndPassword(userName, password);
+        UserDto dto = userService.getUserByUserNameAndPassword(userName, password);
+        ModelAndView response = new ModelAndView();
+
+        return dto;
     }
 
     @RequestMapping(value = "create/new/profile", produces = "application/json", method = RequestMethod.POST)
