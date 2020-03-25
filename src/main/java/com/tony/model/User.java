@@ -2,14 +2,14 @@ package com.tony.model;
 
 public class User {
 
-    private int id;
+    private Integer id;
     private String userName;
     private String password;
     private String email;
-    private int age;
+    private Integer age;
 
-    public User(int id, String userName, String password,
-                String email, int age) {
+    public User(Integer id, String userName, String password,
+                String email, Integer age) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -20,7 +20,7 @@ public class User {
     public User() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

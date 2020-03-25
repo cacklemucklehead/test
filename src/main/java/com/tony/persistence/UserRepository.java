@@ -28,4 +28,26 @@ public class UserRepository {
         return new User();
     }
 
+    public boolean verifyUserNameNotTaken(String userName){
+        String query = "select count(*) from user where userName = ?";
+        return  jdbcTemplate.queryForObject(query, Integer.class, new Object[]{userName}) == 0;
+    }
+
+    public boolean verifyUserEmailNotTaken(String email){
+        String query = "select count(*) from user where email = ?";
+        return  jdbcTemplate.queryForObject(query, Integer.class, new Object[]{email}) == 0;
+    }
+
+    public int saveUser(User user){
+        String query = "insert into user(`userName`, `password`, `email`, `age`) values(?, ?, ?, ?);";
+        return  jdbcTemplate.update(query, user.getUserName(), user.getPassword(),
+                user.getEmail(), user.getAge());
+    }
+
+    public User getUserById(int id){
+        String query = "select * from user where id = ?";
+        return  (User) jdbcTemplate.queryForObject(query, new Object[]{id}, new BeanPropertyRowMapper(User.class));
+    }
+
+
 }

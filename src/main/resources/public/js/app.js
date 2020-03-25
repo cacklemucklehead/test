@@ -1,27 +1,37 @@
 
-var app = angular.module("Shout", []);
+var app = angular.module("Shout", ['ngRoute']);
+
+app.config(function($routeProvider, $locationProvider){
+
+        $locationProvider.hashPrefix('');
+        $routeProvider
+            .when('/user', {
+                templateUrl: 'views/userProfile.html',
+                controller: 'SignInController'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+});
+
 app.controller("SignInController", ['$scope', '$http',function ($scope, $http) {
 
     $scope.signInSelection = true;
     $scope.signInForm = false;
     $scope.signUpForm = false;
     $scope.homeActive = false;
-
-    $scope.user;
-
+    $scope.userSignedIn = false;
 
    $scope.signIn = function signIn() {
        $scope.signInSelection = false;
        $scope.signInForm = true;
        $scope.homeActive = true;
-        console.log("sign in");
    }
 
     $scope.signUp = function signUp() {
         $scope.signInSelection = false;
         $scope.signUpForm = true;
         $scope.homeActive = true;
-        console.log("sign up");
     }
 
     $scope.home = function () {
@@ -29,37 +39,45 @@ app.controller("SignInController", ['$scope', '$http',function ($scope, $http) {
         $scope.signInForm = false;
         $scope.signUpForm = false;
         $scope.homeActive = false;
-        console.log("back up!");
     }
 
     $scope.getUserProfile = function () {
-       var getUser = {
+       let user = {
            method : "GET",
            url: 'userProfile/get/user/profile',
            params: {userName:$scope.usersName, password:$scope.usersPassword}
        };
-        $http(getUser)
-            .then(function(response) {
-                console.log("signing in");
-                $scope.user = response.data;
-                window.location.href = "http://www.w3schools.com";
-                // console.log('id :' + $scope.user.id);
-                // console.log('age :' + $scope.user.age);
-                // console.log('user name :' + $scope.user.userName);
-                // console.log('email :' + $scope.user.email);
+        $http(user)
+            .then(function (response) {
+                if (response.data.id > 0) {
+                    $scope.user = response.data;
+                    let href = window.location.href + 'user';
+                    $scope.signInForm = false;
+                    $scope.signUpForm = false;
+                    $scope.homeActive = false;
+                    $scope.userSignedIn = true;
+                    window.location.href = href;
+                }
             });
     }
 
-    $scope.createUserProfile = function () {
-        var userDto = {
-            age: $scope.newUserAge,
-            email: $scope.newUserEmail,
-            userName: $scope.newUserName,
-            password: $scope.newUserPassword
-        };
-        $http.post("userProfile/create/new/profile", userDto)
-            .then(function(response) {
-                console.log("creating new user")
+    $scope.createNewUserProfile = function () {
+        let user = {
+            method: "POST",
+            url: "userProfile/create/new/user/profile",
+            params: {userName: $scope.newUserName, password: $scope.newUserPassword, email: $scope.newUserEmail, age: $scope.newUserAge}
+        }
+        $http(user)
+            .then(function (response) {
+                if (response.data.id > 0) {
+                    $scope.user = response.data;
+                    let href = window.location.href + 'user';
+                    $scope.signInForm = false;
+                    $scope.signUpForm = false;
+                    $scope.homeActive = false;
+                    $scope.userSignedIn = true;
+                    window.location.href = href;
+                }
             });
     }
 
